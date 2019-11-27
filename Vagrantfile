@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "docker-2019" do |cfg|
     cfg.vm.box = "2019-docker-parallels"
-    cfg.vm.provision "shell", path: "scripts/create-machine.ps1", args: "-machineHome #{home} -machineName docker-2019"
+    cfg.vm.provision "shell", path: "#{__dir__}/scripts/create-machine.ps1", args: "-machineHome #{home} -machineName docker-2019"
     cfg.vm.provider "parallels" do |prl|
       prl.name = "docker-2019"
     end
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "docker-2019-lcow", autostart: false do |cfg|
     cfg.vm.box = "2019-docker-parallels"
-    cfg.vm.provision "shell", path: "scripts/create-machine.ps1", args: "-machineHome #{home} -machineName docker-2019-lcow -enableLCOW"
+    cfg.vm.provision "shell", path: "#{__dir__}/scripts/create-machine.ps1", args: "-machineHome #{home} -machineName docker-2019-lcow -enableLCOW"
     cfg.vm.provider "parallels" do |prl|
       prl.name = "docker-2019-lcow"
       prl.memory = 5120
